@@ -10,7 +10,10 @@ module.exports = {
   theme: {
     colors: {
       'green': '#97c45a',
-      'grey': '#262828'
+      'grey': '#262828',
+      'background': '#f7f8f9',
+      'light_grey': '#ddd',
+      'white': '#FFFFFF'
     },
     extend: {
       fontFamily: {

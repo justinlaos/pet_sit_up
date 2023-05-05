@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_admin!, only: %i[ index ]
   before_action :set_booking, only: %i[ show edit update destroy ]
 
   # GET /bookings or /bookings.json
@@ -65,6 +66,6 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.fetch(:booking, {})
+      params.require(:booking).permit(:first_name, :last_name, :animal_name, :animal_type, :address, :service_date, :hours)
     end
 end

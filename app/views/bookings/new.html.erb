@@ -1,9 +1,12 @@
-<h1 class="text-3xl font-bold underline">New booking</h1>
+<div class="flex justify-between w-fill text-grey">
+  <div class="mr-14">Secure Checkout</div>
+  <div class="mr-14">Guaranteed Price</div>
+  <div>Trusted Reviews</div>
+</div>
+
+<div class="text-4xl font-extrabold my-16 text-grey">Book Online Now</div>
 
 <%= render "form", booking: @booking %>
 
 <br>
 
-<div>
-  <%= link_to "Back to bookings", bookings_path %>
-</div>

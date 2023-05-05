@@ -11,7 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex flex-col w-fill">
+    <div class="flex">
+      <div class="flex flex-col mr-10">
+        Customer Information
+
+        <%= form.text_field :first_name, placeholder: "First Name", class: "my-2 border-light_grey" %>
+
+        <%= form.text_field :last_name, placeholder: "Last Name", class: "my-2 border-light_grey" %>
+
+        <%= form.text_field :animal_name, placeholder: "Animal Name", class: "my-2 border-light_grey" %>
+
+        <%= form.text_field :address, placeholder: "Your Address", class: "my-2 border-light_grey" %>
+
+        <%= form.select :animal_type, options_for_select(Booking.animal_types.map { |key, value| [key.humanize, key] }, @booking.animal_type), class: "my-2 border-light_grey" %>
+      </div>
+
+      <div class="flex flex-col">
+        Sit Schedule
+
+        <%= form.date_field :service_date, class: "my-2 border-light_grey" %>
+
+        <%= form.number_field :hours, in: 2..8, step: 1, value: @booking.hours == 0 ? 2 : @booking.hours, class: "my-2 border-light_grey" %>
+      </div>
+    </div>
+    <button class="bg-green px-6 py-2 text-white font-bold mt-6 w-fill">
+      <%= form.submit "#{ @booking ? "Update" : "Book"} Your PetSit" %>
+    </button>
   </div>
 <% end %>

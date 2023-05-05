@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @booking %>
+<div class="text-3xl">Your Booking Is Set</div>
 
-<div>
-  <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
-  <%= link_to "Back to bookings", bookings_path %>
+<div class="bg-white p-10 my-10 rounded-md">
+  <%= render @booking %>
+</div>
 
-  <%= button_to "Destroy this booking", @booking, method: :delete %>
+<div class="">
+  <%= link_to "Need to Make A Change?", edit_booking_path(@booking) %>
 </div>

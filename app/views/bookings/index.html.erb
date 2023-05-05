@@ -1,14 +1,42 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Bookings</h1>
+<div class="text-3xl">Bookings</div>
 
-<div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
-  <% end %>
+<div class="mt-10" id="bookings">
+
+
+  <table class="table-auto">
+    <thead>
+      <tr class="p-6">
+        <th class="text-left px-12 py-4">Status</th>
+        <th class="text-left px-12 py-4">Date</th>
+        <th class="text-left px-12 py-4">Hours</th>
+        <th class="text-left px-12 py-4">Price</th>
+        <th class="text-left px-12 py-4">Name</th>
+        <th class="text-left px-12 py-4">Pet</th>
+        <th class="text-left px-12 py-4">type</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white p-6 text-center">
+      <% @bookings.each do |booking| %>
+
+        <tr>
+          <td class="p-6"><%= booking.status %></td>
+        
+          <td class="p-6"><%= booking.service_date.strftime('%m/%d/%Y') %></td>
+    
+          <td class="p-6"><%= booking.hours %></td>
+ 
+          <td class="p-6">$<%= booking.price %></td>
+    
+          <td class="p-6"><%= booking.full_name %></td>
+      
+          <td class="p-6"><%= booking.animal_name %></td>
+
+          <td class="p-6"><%= booking.animal_type %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
-
-<%= link_to "New booking", new_booking_path %>

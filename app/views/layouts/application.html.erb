@@ -11,12 +11,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="flex items-center border-b-[.5px] border-grey  w-fill h-20 px-6">
-      <div class="font-bold text-2xl text-grey">PetSit <span class="text-green">Up!</span></div>
+  <body class="bg-background">
+    <div class="flex items-center justify-between border-b-[.5px] border-light_grey bg-white  w-fill h-20 px-6">
+      <%= link_to new_booking_path() do %>
+        <div class="font-bold text-2xl text-grey">PetSit <span class="text-green">Up!</span></div>
+      <% end %>
+
+      <% if admin_signed_in? %> 
+        <div class="flex">
+          <%= link_to bookings_path() do %><div class="mr-10">Bookings</div><% end%>
+          <%= link_to destroy_admin_session_path() do %> Logout <% end %>
+        </div>
+      <% else %>
+        <%= link_to new_admin_session_path() do %> Admin Login <% end %>
+      <% end%>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    
+    <div class="flex flex-col justify-start items-center pt-6">
+      <%= yield %>
+    </div>
   </body>
 </html>

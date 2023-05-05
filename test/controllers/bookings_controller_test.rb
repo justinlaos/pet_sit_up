@@ -1,7 +1,13 @@
 require "test_helper"
 
 class BookingsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    get "/admins/sign_in"
+    sign_in admins(:admin)
+    post admin_session_url
+
     @booking = bookings(:one)
   end
 
@@ -17,7 +23,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking" do
     assert_difference("Booking.count") do
-      post bookings_url, params: { booking: {  } }
+      post bookings_url, params: { booking: { status: "confirmed", first_name: "justin", last_name: "laos", address: "123 main street", animal_name: "mila", animal_type: "dog", hours: 3, price: 40, service_date: "2023-05-24 00:00:00.000000000 +0000" } }
     end
 
     assert_redirected_to booking_url(Booking.last)
@@ -34,7 +40,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update booking" do
-    patch booking_url(@booking), params: { booking: {  } }
+    patch booking_url(@booking), params: { booking: { status: "confirmed", first_name: "justin", last_name: "laos", address: "123 main street", animal_name: "mila", animal_type: "dog", hours: 3, price: 40, service_date: "2023-05-24 00:00:00.000000000 +0000" } }
     assert_redirected_to booking_url(@booking)
   end
 

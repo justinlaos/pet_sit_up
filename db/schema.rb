@@ -24,11 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_002434) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "animal_name"
+    t.integer "animal_type", default: 0
+    t.integer "hours", default: 0
+    t.integer "price", default: 0
+    t.datetime "service_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
