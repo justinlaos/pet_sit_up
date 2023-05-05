@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to PetSit Up!.
 
-Things you may want to cover:
+to get started:
 
-* Ruby version
+1. clone project
+2. cd into project
+3. bundle install
+4. rails db:create
+5. rails db:migrate
+6. rails db:seed
+7. rails s
 
-* System dependencies
+To login as admin user 
 
-* Configuration
+email: "test@admin.com"
+password: "123456"
 
-* Database creation
 
-* Database initialization
+Run rails tests by running
 
-* How to run the test suite
+rails test
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+Thank you!
+
